@@ -36,7 +36,6 @@ public class Player : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
             Fire();
         }
-
         Camera.main.transform.position = transform.position + new Vector3(1, 2, -4);
     }
 
