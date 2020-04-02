@@ -29,6 +29,9 @@ public class Enemy : MonoBehaviour {
 
     // Update is called once per frame
     void Update() {
+        if (hp <= 0) {
+            curState = State.Die;
+        }
         if (damageSource != null) {
             forward = transform.forward;
             if (Vector3.Distance(damageSource.transform.position, transform.position) < attackDis) {
@@ -63,7 +66,7 @@ public class Enemy : MonoBehaviour {
         if (other.transform.tag == "PlayerBullet") {
             hp--;
             Destroy(other.gameObject);
-            if (hp == 0) {
+            if (hp <= 0) {
                 curState = State.Die;
             }
             else {
