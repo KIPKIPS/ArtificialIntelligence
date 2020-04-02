@@ -16,4 +16,10 @@ public class DestroyBullet : MonoBehaviour {
             Destroy(this.gameObject);
         }
     }
+
+    void OnCollisionEnter(Collision other) {
+        if (other.transform.tag=="Untagged") {
+            Destroy(this.gameObject);
+        }
+    }
 }

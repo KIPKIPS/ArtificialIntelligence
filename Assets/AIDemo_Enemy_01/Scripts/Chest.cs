@@ -23,12 +23,23 @@ public class Chest : MonoBehaviour {
             Vector3 screenPos = Camera.main.WorldToScreenPoint(this.transform.position);
             //计算缩放比例
             scale = Mathf.Clamp01(1f / (transform.position.z - player.position.z) * 10);
-            Debug.Log(scale);
+            //Debug.Log(scale);
             //根据世界坐标深度改变Y方向上的偏移量
             flag.transform.position = new Vector3(screenPos.x, y+screenPos.y + scale*100, screenPos.z);
             flag.transform.Rotate(Vector3.up,Time.deltaTime*180);
             //大小缩放
             flag.transform.localScale=new Vector3(scale,scale,scale);
+        }
+    }
+
+    void OnCollisionEnter(Collision other) {
+        if (other.transform.tag=="Player") {
+            Debug.Log("Victory");
+            #if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;//用于退出运行
+            #else
+                Application.Quit();
+            #endif
         }
     }
 }
