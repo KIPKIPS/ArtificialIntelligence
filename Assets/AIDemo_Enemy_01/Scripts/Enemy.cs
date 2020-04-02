@@ -53,7 +53,7 @@ public class Enemy : MonoBehaviour {
                 case State.Die: Destroy(this.gameObject); break;
                 case State.Attack: Attack(); break;
             }
-            Debug.Log(curState);
+            //Debug.Log(curState);
         }
         else {
             Back();
