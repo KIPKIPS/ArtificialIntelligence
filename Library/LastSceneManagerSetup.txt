@@ -1,0 +1,5 @@
+sceneSetups:
+- path: Assets/AIDemo_Enemy_01/Scenes/Scene.unity
+  isLoaded: 1
+  isActive: 1
+  isSubScene: 0
